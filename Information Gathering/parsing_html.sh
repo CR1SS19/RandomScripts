@@ -2,7 +2,7 @@
 
 if [ "$1" == "" ]; then
     echo "Parsing HTML"
-    echo "Usage: $0 example.com"
+    echo "Usage: $0 <URL>"
 else
     wget -q "$1" -O - | grep -o 'http[s]\?://[^"]*' | cut -d '/' -f 3 | sort -u > domains.txt
     echo ""
