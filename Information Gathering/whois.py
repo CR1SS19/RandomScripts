@@ -9,7 +9,7 @@ query = sys.argv[1].encode("utf-8") + b"\r\n"
 s.send(query) # Send the first query
 
 # Receive and process the first response
-response = s.recv(1024).decode("utf-8").spit()
+response = s.recv(1024).decode("utf-8").split()
 whois = response[19]
 s.close()
 
