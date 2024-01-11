@@ -14,11 +14,11 @@ whois = response[19]
 s.close()
 
 # Create the second socket
-s1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s1.connect((whois,43))
-s1.send(query) # Send the second query
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((whois,43))
+s.send(query) # Send the second query
 
 # Receive and print the final response
-fresponse = s1.recv(1024).decode("utf-8")
+fresponse = s.recv(1024).decode("utf-8")
 print(fresponse)
-s1.close()
+s.close()
