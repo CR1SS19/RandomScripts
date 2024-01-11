@@ -4,21 +4,19 @@ import socket, sys
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(("whois.iana.org", 43))
 
-# Encode the query string as bytes before sending
-query = sys.argv[1].encode("utf-8") + b"\r\n"
-s.send(query) # Send the first query
+# Encode the query string as bytes and sand the first query
+s.send(bytes(sys.argv[1]+"\r\n", encoding='utf-8')) 
 
 # Receive and process the first response
-response = s.recv(1024).decode("utf-8").split()
-whois = response[19]
-s.close()
+response = s.recv(1024).split()
+whois = (response[19])
+print(whois.decode())
 
 # Create the second socket
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((whois,43))
-s.send(query) # Send the second query
+s1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s1.connect((whois,43))
+s1.send(bytes(sys.argv[1]+"\r\n", encoding='utf-8')) # Send the second query
 
 # Receive and print the final response
-fresponse = s.recv(1024).decode("utf-8")
-print(fresponse)
-s.close()
+fresponse = s1.recv(1024)
+print(fresponse.decode())
