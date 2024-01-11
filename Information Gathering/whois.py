@@ -21,4 +21,4 @@ s1.send(query) # Send the second query
 # Receive and print the final response
 fresponse = s1.recv(1024).decode("utf-8")
 print(fresponse)
-s1.colse()
+s1.close()
