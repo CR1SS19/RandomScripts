@@ -5,7 +5,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(("whois.iana.org", 43))
 
 # Encode the query string as bytes before sending
-query = sys.argv[1].ecode("utf-8") + b"\r\n"
+query = sys.argv[1].encode("utf-8") + b"\r\n"
 s.send(query) # Send the first query
 
 # Receive and process the first response
