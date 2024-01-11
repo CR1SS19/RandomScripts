@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 import socket,sys
 
 # Usage: python3 dns_resolver.py example.com

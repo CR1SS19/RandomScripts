@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 import socket
 
 ip = input("Enter the ip: ")
