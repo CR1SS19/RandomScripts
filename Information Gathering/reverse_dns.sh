@@ -4,3 +4,4 @@
 
 for ip in $(seq 224 239);do
 host -t ptr $1.$ip | grep -v "$1" | cut -d " " -f 5
+done
