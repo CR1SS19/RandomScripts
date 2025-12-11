@@ -1,2 +1,2 @@
-# random-scripts
+# Random Scripts
 Some scripts that were created through some offensive security studies. Maybe they are useful.
